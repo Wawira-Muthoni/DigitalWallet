@@ -3,15 +3,14 @@ from datetime import datetime
 from email import message
 from inspect import signature
 from locale import currency
-# from tkinter import CASCADE
 from django.db import models
 
 # Create your models here.
 
 class Customer (models.Model):
         first_name = models.CharField(max_length = 15)
-        last_name = models.CharField(max_length = 1) 
-        gender = models.CharField(max_length = 2)
+        last_name = models.CharField(max_length = 15) 
+        gender = models.CharField(max_length = 6)
         age = models.PositiveSmallIntegerField ()
         nationality = models.CharField(max_length = 10)
         user_id = models.CharField(max_length = 7)
@@ -99,7 +98,7 @@ class Third_Party(models.Model):
                 Currency,
                 on_delete= models.CASCADE,
                 null=True
-                # related_name=currency_thirdparty
+               
         )
         account = models.ForeignKey(
                 Account,
@@ -109,7 +108,7 @@ class Third_Party(models.Model):
 
 
 class Notification(models.Model):
-        full_name = models.CharField(max_length= 12,
+        full_name = models.CharField(max_length= 20,
         null = True)
         time = models.DateTimeField(
                 null = True
