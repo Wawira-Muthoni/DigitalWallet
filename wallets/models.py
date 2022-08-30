@@ -1,15 +1,16 @@
-from ast import With
+
 from datetime import datetime
 from email import message
 from inspect import signature
 from locale import currency
+# from tkinter import CASCADE
 from django.db import models
 
 # Create your models here.
 
 class Customer (models.Model):
-        first_name = models.CharField(max_length = 15)
-        last_name = models.CharField(max_length = 15) 
+        first_name = models.CharField(max_length = 7)
+        last_name = models.CharField(max_length = 7) 
         gender = models.CharField(max_length = 6)
         age = models.PositiveSmallIntegerField ()
         nationality = models.CharField(max_length = 10)
@@ -32,17 +33,13 @@ class Currency(models.Model):
 
 class Wallet(models.Model):
         balance = models.PositiveIntegerField()
-        # customer = models.OneToOneRel()
-        # amount = models.BigAutoField()
         pin = models.SmallIntegerField()
         currency = models.ForeignKey(
                 Currency,
          on_delete= models.CASCADE,
          null= True
-                # related_name= 'currency_wallet'
+               
         )                
-
-
 
 class Account(models.Model):
         account_number = models.TextField()
@@ -50,24 +47,40 @@ class Account(models.Model):
         deposit = models.PositiveIntegerField()
         withdrawals = models.PositiveIntegerField()
         balance = models.PositiveIntegerField()
-        # transaction=models.PositiveIntegerField(
-        #         "Transaction",
-        #         on_delete = models.CASCADE,
-        #         null = True
-        # )
 
-class Transaction(models.Model):
-        # symbol= models.PositiveIntegerField(
-        #         null=True) 
-        transaction_code =models.CharField(max_length = 8)
+class Receipt(models.Model):
+        receipt_date = models.DateTimeField()
+        bill_number = models.PositiveIntegerField()
+        receipt_file = models.FileField()
+        total_amount = models.IntegerField()       
+
+class Transaction(models.Model): 
+        transaction_code =models.CharField(max_length = 15)
+        transaction_number = models.PositiveIntegerField()
         transaction_amount = models.PositiveIntegerField()
-        # transaction_number = models.BigIntegerField()
-        transaction_type = models.CharField(max_length=4)
+        transaction_type = models.CharField(max_length=10)
         datetime = models.DateTimeField(
-                null=True
+                null=True)
+        transaction_charge = models.PositiveIntegerField(null=True) 
+        wallet = models.ForeignKey(
+                Wallet,
+                on_delete=models.CASCADE,
+                null= True) 
+        account = models.ForeignKey(
+                Account,
+                on_delete= models.CASCADE,
+                null= True
         )
-        # receipt = models.OneToOneField()
-
+        receipt = models.ForeignKey(
+                Receipt,
+                on_delete=models.CASCADE,
+                null = True
+        )
+        destination_account = models.ForeignKey(
+                   'Account',
+                   on_delete=models.CASCADE,
+                    related_name='Transaction_destination_account'
+            )
 
 class Card(models.Model):
         card_number = models.CharField(max_length = 8)
@@ -75,12 +88,11 @@ class Card(models.Model):
         card_type = models.CharField(max_length = 6)
         date_issued = models.DateTimeField()
         issuer =models.CharField(max_length = 6)
-        secuity_code = models.SmallIntegerField()
+        security_code = models.SmallIntegerField(null=True)
         signature = models.ImageField()
 
-
 class Third_Party(models.Model):
-        first_name = models.CharField(max_length=12,
+        full_name = models.CharField(max_length=12,
               null = True)
         user_id = models.PositiveSmallIntegerField(
                 null = True
@@ -93,7 +105,6 @@ class Third_Party(models.Model):
         )
         location = models.CharField(max_length=10)
         isActive = models.BooleanField(max_length=3)
-        # transaction_cost = models.BigAutoField()
         currency = models.ForeignKey(
                 Currency,
                 on_delete= models.CASCADE,
@@ -105,7 +116,6 @@ class Third_Party(models.Model):
                 on_delete= models.CASCADE,
                 null= True
         )
-
 
 class Notification(models.Model):
         full_name = models.CharField(max_length= 20,
@@ -121,19 +131,16 @@ class Notification(models.Model):
                 )
         status = models.CharField(max_length=12)
 
-class Receipt(models.Model):
-        receipt_date = models.DateTimeField()
-        bill_number = models.PositiveIntegerField()
-        receipt_file = models.FileField()
-        total_amount = models.IntegerField()
-
 class Loan(models.Model):
+        loan_id = models.IntegerField()
         loan_type= models.CharField(max_length = 10)
         balance = models.IntegerField()
         payment_due_date = models.DateTimeField()
         customer = models.ForeignKey(
                 Customer,
-                on_delete=models.CASCADE
+                on_delete=models.CASCADE,
+                null=True
+
         )
         loan_terms = models   
         status = models.BooleanField()
