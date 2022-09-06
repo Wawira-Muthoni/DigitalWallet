@@ -40,6 +40,11 @@ class Wallet(models.Model):
          null= True
                
         )                
+class Receipt(models.Model):
+        receipt_date = models.DateTimeField()
+        bill_number = models.PositiveIntegerField()
+        receipt_file = models.FileField()
+        total_amount = models.IntegerField() 
 
 class Account(models.Model):
         account_number = models.TextField()
@@ -47,13 +52,7 @@ class Account(models.Model):
         deposit = models.PositiveIntegerField()
         withdrawals = models.PositiveIntegerField()
         balance = models.PositiveIntegerField()
-
-class Receipt(models.Model):
-        receipt_date = models.DateTimeField()
-        bill_number = models.PositiveIntegerField()
-        receipt_file = models.FileField()
-        total_amount = models.IntegerField()       
-
+        
 class Transaction(models.Model): 
         transaction_code =models.CharField(max_length = 15)
         transaction_number = models.PositiveIntegerField()
