@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wallets', '0004_card_remove_transaction_symbol_currency_nationality_and_more'),
+        ('wallet', '0004_card_remove_transaction_symbol_currency_nationality_and_more'),
     ]
 
     operations = [
@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=12)),
                 ('location', models.CharField(max_length=10)),
                 ('isActive', models.BooleanField(max_length=3)),
-                ('account', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallets.account')),
-                ('currency', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallets.currency')),
+                ('account', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallet.account')),
+                ('currency', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallet.currency')),
             ],
         ),
     ]

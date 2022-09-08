@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wallets', '0009_loan'),
+        ('wallet', '0009_loan'),
     ]
 
     operations = [
@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateTimeField()),
                 ('bonus', models.IntegerField()),
-                ('transaction', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallets.transaction')),
-                ('wallet', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallets.wallet')),
+                ('transaction', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallet.transaction')),
+                ('wallet', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallet.wallet')),
             ],
         ),
     ]

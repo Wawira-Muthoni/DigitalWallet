@@ -1,6 +1,5 @@
 from django import forms
-from .models import Customer, Notification, Receipt,Account, Third_Party, Transaction
-from .models import Wallet,Card,Loan,Reward
+from .models import Customer, Notification, Receipt,Account, ThirdParty, Transaction, Wallet,Card,Loan,Reward
 
 class CustomerRegistrationForm(forms.ModelForm):
     class Meta:
@@ -30,7 +29,7 @@ class CardRegistrationForm(forms.ModelForm):
         fields = "__all__"
 class ThirdPartyRegistrationForm(forms.ModelForm):
     class Meta:
-        model = Third_Party
+        model = ThirdParty
         fields = "__all__"
 class NotificationRegistrationForm(forms.ModelForm):
     class Meta:

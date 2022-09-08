@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wallets', '0008_remove_third_party_name_notification_full_name_and_more'),
+        ('wallet', '0008_remove_third_party_name_notification_full_name_and_more'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('payment_due_date', models.DateTimeField()),
                 ('status', models.BooleanField()),
                 ('datetime', models.DateTimeField()),
-                ('guarantee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='wallets.third_party')),
+                ('guarantee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='wallet.third_party')),
             ],
         ),
     ]

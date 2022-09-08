@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('balance', models.PositiveIntegerField()),
                 ('pin', models.SmallIntegerField()),
-                ('currency', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallets.currency')),
+                ('currency', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='wallet.currency')),
             ],
         ),
     ]
