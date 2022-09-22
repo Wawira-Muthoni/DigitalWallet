@@ -27,21 +27,29 @@ class CardRegistrationForm(forms.ModelForm):
     class Meta:
         model = Card
         fields = "__all__"
+
 class ThirdPartyRegistrationForm(forms.ModelForm):
     class Meta:
         model = ThirdParty
         fields = "__all__"
+
 class NotificationRegistrationForm(forms.ModelForm):
     class Meta:
         model = Notification
         fields = "__all__"
+
 class LoanRegistrationForm(forms.ModelForm):
     class Meta:
         model =Loan
         fields = "__all__"
+
 class RewardRegistrationForm(forms.ModelForm):
     class Meta:
         model =Reward
         fields = "__all__"
 
+class CurrencyRegistrationForm(forms.ModelForm):
+    class Meta:
+        model =Reward
+        fields = "__all__"
 

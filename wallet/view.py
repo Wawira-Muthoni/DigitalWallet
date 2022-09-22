@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from .form import CustomerRegistrationForm,ReceiptRegistrationForm,AccountRegistrationForm,ThirdPartyRegistrationForm,LoanRegistrationForm,WalletRegistrationForm,TransactionRegistrationForm,CardRegistrationForm,NotificationRegistrationForm,RewardRegistrationForm
+from .form import CustomerRegistrationForm,ReceiptRegistrationForm,AccountRegistrationForm,ThirdPartyRegistrationForm,LoanRegistrationForm,WalletRegistrationForm,TransactionRegistrationForm,CardRegistrationForm,NotificationRegistrationForm,RewardRegistrationForm,CurrencyRegistrationForm
 
 def register_customer(request):
     form= CustomerRegistrationForm()
@@ -33,7 +33,7 @@ def register_ThirdParty(request):
     form= ThirdPartyRegistrationForm()
     return render(request,"wallet/register_ThirdParty.html",{"form":form}) 
 
-def register_Card(request):
+def register_Notification(request):
     form= NotificationRegistrationForm()
     return render(request,"wallet/register_Notification.html",{"form":form}) 
 
@@ -43,4 +43,8 @@ def register_Loan(request):
 
 def register_Reward(request):
     form= RewardRegistrationForm()
-    return render(request,"wallet/register_Reward.html",{"form":form})                                         
+    return render(request,"wallet/register_Reward.html",{"form":form})   
+
+def register_Currency(request):
+    form= CurrencyRegistrationForm()
+    return render(request,"wallet/register_Currency.html",{"form":form})                                          
