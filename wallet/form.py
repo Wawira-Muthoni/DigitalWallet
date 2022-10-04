@@ -44,6 +44,7 @@ class LoanRegistrationForm(forms.ModelForm):
         fields = "__all__"
 
 class RewardRegistrationForm(forms.ModelForm):
+
     class Meta:
         model =Reward
         fields = "__all__"

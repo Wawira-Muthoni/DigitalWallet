@@ -1,5 +1,5 @@
 from django.urls import path
-from .view import register_Account, register_Currency, register_Receipt, register_Transaction, register_customer,register_Account,register_wallet,register_Card,register_ThirdParty,register_Loan,register_Reward,register_Notification
+from .view import edit_customer,customer_profile, list_rewards,list_rewards, list_transactions,list_receipts,list_accounts, list_customers, register_Account, register_Currency, register_Receipt, register_Transaction, register_customer,register_Account,register_wallet,register_Card,register_ThirdParty,register_Loan,register_Reward,register_Notification
 
 urlpatterns = [
     path("register/",register_customer,name="registration"),
@@ -12,4 +12,22 @@ urlpatterns = [
     path("loan/",register_Loan,name="registration_nine"),
     path("reward/",register_Reward,name="registration_ten"),
     path("notification/",register_Notification, name="registration_eleven"),
-    path("currency/",register_Currency, name="registration_twelve")]                   
+    path("currency/",register_Currency, name="registration_twelve"),
+    
+    path("list/",list_customers,name="list_customers"),
+    path("list/",list_accounts,name="list_account"),
+    path("list/", list_receipts,name="list_receipts"),
+    path("list/",list_transactions,name = "list_transactions"),
+    path("list/",list_rewards,name="list_rewards")
+    ]
+    # path("list/",list_wallets,name="list_wallets")
+
+
+    # path("customers/<int:id>/",customer_profile, name="customer_profile"),
+
+    # path("customers/edit/<int:id>/",edit_customer,name ="edit_customer")
+     
+
+
+
+        

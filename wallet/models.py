@@ -9,14 +9,17 @@ from django.db import models
 # Create your models here.
 
 class Customer (models.Model):
-        first_name = models.CharField(max_length = 7)
-        last_name = models.CharField(max_length = 7) 
-        gender = models.CharField(max_length = 6)
+        first_name = models.CharField(max_length = 40)
+        last_name = models.CharField(max_length = 40) 
+        gender = models.CharField(max_length = 20)
         age = models.PositiveSmallIntegerField ()
-        nationality = models.CharField(max_length = 10)
-        user_id = models.CharField(max_length = 7)
+        nationality = models.CharField(max_length = 20)
+        user_id = models.CharField(max_length = 15)
+        email = models.EmailField(
+                null = True
+        )
         nationality= models.CharField(
-                max_length= 12,
+                max_length= 15,
                 null= True
         )
         occupation=models.BooleanField()
@@ -24,7 +27,7 @@ class Customer (models.Model):
 
 class Currency(models.Model):
         symbol = models.CharField(
-                max_length= 5,
+                max_length= 20,
                 null = True
         )
         nationality = models.CharField(max_length=12,
@@ -48,13 +51,13 @@ class Receipt(models.Model):
 
 class Account(models.Model):
         account_number = models.TextField()
-        account_name = models.CharField(max_length=10)
+        account_name = models.CharField(max_length=40)
         deposit = models.PositiveIntegerField(default=0)
         withdrawals = models.PositiveIntegerField(default=0)
         balance = models.PositiveIntegerField(default=0)
         
 class Transaction(models.Model): 
-        transaction_code =models.CharField(max_length = 15)
+        transaction_code =models.CharField(max_length = 30)
         transaction_number = models.PositiveIntegerField(default=0)
         transaction_amount = models.PositiveIntegerField(default=0)
         transaction_type = models.CharField(max_length=10)
@@ -82,11 +85,11 @@ class Transaction(models.Model):
             )
 
 class Card(models.Model):
-        card_number = models.CharField(max_length = 8)
+        card_number = models.CharField(max_length = 20)
         expiry_date = models.DateTimeField()
-        card_type = models.CharField(max_length = 6)
+        card_type = models.CharField(max_length = 20)
         date_issued = models.DateTimeField()
-        issuer =models.CharField(max_length = 6)
+        issuer =models.CharField(max_length = 20)
         security_code = models.SmallIntegerField(null=True)
         signature = models.ImageField()
 
@@ -102,8 +105,8 @@ class ThirdParty(models.Model):
         email = models.EmailField(
                 null = True
         )
-        location = models.CharField(max_length=10)
-        isActive = models.BooleanField(max_length=3)
+        location = models.CharField(max_length=15)
+        isActive = models.BooleanField(max_length=15)
         currency = models.ForeignKey(
                 Currency,
                 on_delete= models.CASCADE,
@@ -132,7 +135,7 @@ class Notification(models.Model):
 
 class Loan(models.Model):
         loan_id = models.IntegerField(default=0)
-        loan_type= models.CharField(max_length = 10)
+        loan_type= models.CharField(max_length = 30)
         balance = models.IntegerField()
         payment_due_date = models.DateTimeField()
         customer = models.ForeignKey(

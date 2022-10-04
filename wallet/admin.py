@@ -5,8 +5,8 @@ from .models import Account, Currency, Customer, Notification, Receipt, Reward, 
 
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ("first_name","last_name")
-    search_field = ("first_name","last_name")
+    list_display = ("first_name","last_name","email")
+    search_field = ("first_name","last_name","email")
 admin.site.register(Customer,CustomerAdmin) 
 
 class WalletAdmin(admin.ModelAdmin):

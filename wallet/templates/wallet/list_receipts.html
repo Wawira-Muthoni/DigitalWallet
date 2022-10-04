@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>receipt_number</td>
+            <td>bill_number</td>
+            <td>receipt_file</td>
+            <td>total_amount</td>
+        </th>
+        {%for receipt in receipts%}
+    <tr>
+        <td>{{receipt.receipt_number}}</td>
+        <td>{{receipt.bill_number}}</td>
+        <td>{{receipt.total_amount}}</td>
+        <td>{{receipt.receipt_file}}</td>
+       
+    </tr>
+    {%endfor%}
+    
+    </table>
+</body>
+</html>

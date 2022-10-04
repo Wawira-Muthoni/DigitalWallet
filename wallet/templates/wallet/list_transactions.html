@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>transaction_code</td>
+            <td>transaction_amount</td>
+            <td>transaction_type</td>
+            <td>datetime</td>
+        </th>
+        {%for transaction in transcations%}
+    <tr>
+        <td>{{transaction.transaction_amount}}</td>
+        <td>{{transaction.transaction_type}}</td>
+        <td>{{transaction.transaction_code}}</td>
+        <td>{{transaction.datetime}}</td>
+     
+       
+    </tr>
+    {%endfor%}
+    
+    </table>
+</body>
+</html>
