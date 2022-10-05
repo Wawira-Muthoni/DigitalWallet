@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>full_name</td>
+            <td>user_id</td>
+            <td>location</td>
+            <td>isActive</td>
+            <td>currency</td>
+            <td>account</td>
+            <td>email</td>
+        </th>
+        {%for thirdparty in thirdpartys%}
+    <tr>
+        <td>{{thirdparty.full_name}}</td>
+        <td>{{thirdparty.email}}</td>
+        <td>{{thirdparty.user_id}}</td>
+        <td>{{thirdparty.location}}</td>
+        <td>{{thirdparty.currency}}</td>
+        <td>{{thirdparty.account}}</td>
+        <td>{{thirdparty.isActive}}</td>   
+    </tr>
+    {%endfor%}
+    
+    </table>
+</body>
+</html>

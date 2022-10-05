@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>full_name</td>"full_name","time","message","date_created","customer","status"
+            <td>time</td>
+            <td>message</td>
+            <td>date_created</td>
+            <td>customer</td>
+            <td>status</td>
+        </th>
+        {%for notification in notifications%}
+    <tr>
+        <td>{{notification.full_name}}</td>
+        <td>{{notification.message}}</td>
+        <td>{{notification.date_created}}</td>
+        <td>{{notification.customer}}</td>
+        <td>{{notification.status}}</td>
+        
+        
+    </tr>
+    {%endfor%}
+    
+    </table>
+</body>
+</html>

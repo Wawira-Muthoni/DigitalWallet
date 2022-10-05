@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django .shortcuts import redirect
-from wallet.models import Account,Customer,Card,Receipt, Reward,Transaction
+from wallet.models import Account, Currency,Customer,Card, Notification,Receipt, Reward, ThirdParty,Transaction
 
 # Create your views here.
 
@@ -112,8 +112,21 @@ def list_transactions(request):
 
 def list_rewards(request):
     rewards= Reward.objects.all()    
-    return render(request,"wallet/rewards_list.html",{"rewards":rewards})       
+    return render(request,"wallet/rewards_list.html",{"rewards":rewards})
 
+
+def list_thirdpartys(request):
+    thirdpartys= ThirdParty.objects.all()    
+    return render(request,"wallet/thirdpartys_list.html",{"thirdpartys":thirdpartys})           
+
+def list_notifications(request):
+    notifications= Notification.objects.all()    
+    return render(request,"wallet/notifications_list.html",{"notifications":notifications})  
+
+
+def list_currencys(request):
+    currencys= Currency.objects.all()    
+    return render(request,"wallet/currencys_list.html",{"currencys":currencys})     
 
 
 
